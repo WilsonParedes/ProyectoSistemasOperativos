@@ -17,7 +17,6 @@ private:
 
 public: 
    
-    
     BitacoraP(string NoProceso, string TemaEjecucion, PrioridadProceso pp, string paternidad, string tiempoejecucion) {
         this->NoProceso = NoProceso;
         this->TemaEjecucion = TemaEjecucion;

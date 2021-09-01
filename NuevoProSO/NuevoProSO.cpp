@@ -49,6 +49,7 @@ void RoundRobin(char datos[], int tiempo[], int numero) {
             sumatoria += tiempoFinal;
             cout << "el tiempo de proceso de " << datos[i] << ": "
                 << tiempoFinal << endl;
+            procesos.agregarProceso(BitacoraP::BitacoraP("2", "quetal", PrioridadProceso::LISTO, "2", "30"));
             metalera++;
         }
         i < (numero - 1) ? i++ : i = 0;
@@ -60,18 +61,51 @@ void RoundRobin(char datos[], int tiempo[], int numero) {
 
 
 int main() {
-  
-
+    int op;
+    bool exit;
     char datos[limite] = { 'a','b','c','d','e' };
     int tiempo[limite];
-    RoundRobin(datos, tiempo, limite);
-    cin.get();
-    cin.get();
+    do {
+        op = 0;
+        exit = false;
+        cout << "Ingrese la opción que desee " << endl;
+        cout << "1--> Leer Archivo " << endl;
+        cout << "2--> Ver Procesador " << endl;
+        cout << "3--> Verificar Bitacora " << endl;
+        cout << "4--> Salir " << endl;
+        cin >> op;
 
-    procesos.mostrarProcesos();
-
+        switch (op) {
+     
+        case 1:
+            procesos.LeerFichero();
+            break;
+        case 2:
+            RoundRobin(datos, tiempo, limite);
+            cin.get();
+            cin.get();
+            exit = false;
+            break;
+            break;
+        case 3:
+          
+            procesos.mostrarProcesos();
+            break;
+        case 4:
+            exit = true;
+         
+        default:
+            cout << "Ingreso una opción incorrecta";
+         
+        }
+    } while (!exit);
     return 0;
+
 }
+
+
+    
+
 
 // Ejecutar programa: Ctrl + F5 o menú Depurar > Iniciar sin depurar
 // Depurar programa: F5 o menú Depurar > Iniciar depuración
