@@ -54,7 +54,7 @@ public:
     string getPaternidad() {
         return paternidad;
     }
-    string setTiempoEjecucion() {
+    string getTiempoEjecucion() {
         return tiempoejecución;
     }
 
