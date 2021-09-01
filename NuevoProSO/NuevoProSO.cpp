@@ -5,7 +5,14 @@
 #include "BitacoraP.h";
 #include "AlmacenDatos.h";
 #include "PrioridadProceso.h";
+#include <stdio.h>
+#include <stdlib.h>
+#include <windows.h>
 #define limite 5
+
+#include <chrono>
+#include <thread>
+using namespace std::chrono_literals;
 using namespace std;
 AlmacenDatos procesos = AlmacenDatos();
 
@@ -18,7 +25,7 @@ void insertar(char datos[], int tiempo[], int numero) {
 
 int quantum(int tiempo[], int numero) {
     int resultado = 20;
-   
+    
     /*for (int i = 0; i < numero; ++i)
         resultado += tiempo[i];
     resultado /= numero;*/

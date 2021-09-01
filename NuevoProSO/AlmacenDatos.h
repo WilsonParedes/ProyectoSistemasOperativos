@@ -47,12 +47,15 @@ public:
 	}
 
 	void mostrarProcesosContenedroTXT() {
+		system("cls");
 		cout << "No. Proceso\t | Tema\t\t\t | Paternidad\t | Tiempo Ejecucion";
 		cout << endl;
 		for (int i = 0; i < ContenedorTXT.size(); i++) {
 			cout << ContenedorTXT[i].toString();
 			cout << endl;
+			
 		}
+		cout << endl;
 	}
 
 
@@ -68,18 +71,18 @@ public:
 				exit(1);
 			}// fin de error
 			system("cls");
-			cout << "No. Proceso\tTema\tPrioridadProceso\tPaternidad\tTiempo de Ejecución";
-			cout << "*********************************************************************";
+			
 			while (!l.eof()) {//lectura del fichero
 				cont = 0;
 				
 				getline(l, leer);// almacena la información del fichero en la variable leer 
-				cout << leer << "\n";// se imprime en pantalla, guarda el formato exacto de como se encuentra en el fichero.
+				//cout << leer << "\n";// se imprime en pantalla, guarda el formato exacto de como se encuentra en el fichero.
 
 
 				stringstream input_stringstream(leer);
 
 				while (getline(input_stringstream,temp,'|')) {
+				
 					if (cont == 0) {
 						temNoProceso = temp;
 					}if (cont == 1) {
@@ -96,6 +99,7 @@ public:
 				}
 				agregarProcesoaContenedorTXT(BitacoraP::BitacoraP(temNoProceso, tempTema, PrioridadProceso::NUEVO, tempPaternidad, tempTiempo));
 			}l.close();	// fin de la lectura del fichero	
+
 
 			mostrarProcesosContenedroTXT(); 
 		}
